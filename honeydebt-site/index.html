@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HoneyDebt — Clarity Before Credit</title>
+<meta name="description" content="Know exactly what a loan will cost you — in rupees, risk, and freedom. Before you sign. Free for every Indian borrower.">
+<meta property="og:title" content="HoneyDebt — Clarity Before Credit">
+<meta property="og:description" content="AI-powered loan clarity. Free for every Indian borrower.">
+<meta property="og:image" content="/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@200;300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+
+<!-- components.js injects nav, footer, cursor, progress bar -->
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hex-floor" id="hexFloor">
+    <svg viewBox="0 0 2000 800" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="hpat" x="0" y="0" width="80" height="92" patternUnits="userSpaceOnUse">
+          <polygon points="40,4 76,24 76,68 40,88 4,68 4,24" fill="none" stroke="#C9952A" stroke-width="0.8"/>
+        </pattern>
+      </defs>
+      <rect width="2000" height="800" fill="url(#hpat)"/>
+    </svg>
+  </div>
+  <div class="hex-vignette"></div>
+
+  <!-- Floating 2D kinetic elements -->
+  <div class="float-el fl-hex-lg">
+    <svg viewBox="0 0 140 140" fill="none" width="100%" height="100%">
+      <path d="M70,12L118,40L118,96L70,124L22,96L22,40Z" stroke="#C9952A" stroke-width="1" fill="none"/>
+      <line x1="40" y1="100" x2="120" y2="26" stroke="#C9952A" stroke-width=".7" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="float-el fl-hex-sm">
+    <svg viewBox="0 0 140 140" fill="none" width="100%" height="100%">
+      <path d="M70,12L118,40L118,96L70,124L22,96L22,40Z" stroke="#E4B150" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+  <div class="float-el fl-hex-sm2">
+    <svg viewBox="0 0 140 140" fill="none" width="100%" height="100%">
+      <path d="M70,12L118,40L118,96L70,124L22,96L22,40Z" stroke="#C9952A" stroke-width="2.5" fill="none"/>
+    </svg>
+  </div>
+  <div class="float-el fl-dot fd1"></div>
+  <div class="float-el fl-dot fd2"></div>
+  <div class="float-el fl-dot fd3"></div>
+  <div class="float-el fl-dot fd4"></div>
+  <div class="float-el fl-dot fd5"></div>
+  <div class="float-el fl-dot fd6"></div>
+  <div class="float-el fl-line fln1"></div>
+  <div class="float-el fl-line fln2"></div>
+
+  <div class="hero-l">
+    <div class="h-eyebrow">✦ AI-Powered Verdicts · Breaking the debt taboo · Free</div>
+    <h1>Know<br>before<br>you <em>owe.</em></h1>
+    <p class="hero-desc">Financial clarity was always a privilege of the wealthy. We are changing that. Every Indian borrower deserves to understand their loan before signing — not after.</p>
+    <div class="hero-taboo">Financial clarity is not a luxury</div>
+    <div class="hero-btns">
+      <a href="/download.html" class="hbtn hbtn-g">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.31.07 2.23.73 2.98.77 1.14-.24 2.24-.93 3.44-.84 1.46.12 2.56.69 3.28 1.74-3.01 1.77-2.46 5.77.44 6.9-.51 1.4-1.19 2.79-2.14 4.31zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        Download Free
+      </a>
+      <a href="/how-it-works.html" class="hbtn hbtn-o">See How It Works ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-r">
+    <div class="card-stack" id="cardStack">
+      <div class="kcard">
+        <div style="height:80px;background:rgba(255,255,255,.03);border-radius:2px;margin-bottom:8px;"></div>
+        <div style="height:40px;background:rgba(255,255,255,.02);border-radius:2px;"></div>
+      </div>
+      <div class="kcard">
+        <div class="kc-verdict-lbl">Financial Health</div>
+        <div style="height:3px;background:rgba(201,149,42,.3);margin-bottom:12px;" id="healthBar"></div>
+        <div class="kc-metrics">
+          <div class="km" id="midDti"><div class="km-l">DTI</div><div class="km-v" id="midDtiVal">22%</div></div>
+          <div class="km" id="midFoir"><div class="km-l">FOIR</div><div class="km-v" id="midFoirVal">38%</div></div>
+        </div>
+      </div>
+      <div class="kcard">
+        <div class="kc-verdict-lbl">✦ AI Verdict</div>
+        <div class="kc-word" id="verdictWord">STRETCHED</div>
+        <p class="kc-sub" id="verdictSub">One financial setback away from trouble. Consider a smaller loan or longer tenure.</p>
+        <div class="kc-metrics">
+          <div class="km" id="kmDti"><div class="km-l">DTI</div><div class="km-v" id="kmDtiVal">22%</div></div>
+          <div class="km" id="kmFoir"><div class="km-l">FOIR</div><div class="km-v" id="kmFoirVal">38%</div></div>
+          <div class="km" id="kmBuf"><div class="km-l">Buffer</div><div class="km-v" id="kmBufVal">9.2M</div></div>
+          <div class="km" id="kmInt"><div class="km-l">Interest</div><div class="km-v" id="kmIntVal">₹93K</div></div>
+        </div>
+      </div>
+      <div class="mini-calc">
+        <div class="mc-tag">⚡ Try it live</div>
+        <div class="mc-label">Loan Amount</div>
+        <input type="range" class="mc-slider" id="loanSlider" min="100000" max="1000000" value="500000" step="10000">
+        <div class="mc-result">
+          <span class="mc-emi-lbl">EMI/mo</span>
+          <span class="mc-emi-val" id="emiVal">₹16,488</span>
+        </div>
+        <div class="mc-badge warn" id="mcBadge">STRETCHED</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-t">
+    <span class="mqi"><b>Free forever</b></span><span class="mqi">No dark patterns</span><span class="mqi"><b>No referral fees</b></span><span class="mqi">No data selling</span><span class="mqi"><b>Clarity before credit</b></span><span class="mqi">Know before you owe</span><span class="mqi"><b>Breaking the debt taboo</b></span><span class="mqi">For every Indian borrower</span>
+    <span class="mqi"><b>Free forever</b></span><span class="mqi">No dark patterns</span><span class="mqi"><b>No referral fees</b></span><span class="mqi">No data selling</span><span class="mqi"><b>Clarity before credit</b></span><span class="mqi">Know before you owe</span><span class="mqi"><b>Breaking the debt taboo</b></span><span class="mqi">For every Indian borrower</span>
+  </div>
+</div>
+
+<!-- STAT PANELS -->
+<section class="sp sp-a" id="sp1">
+  <div class="sp-shape-wrap"><div class="sp-diag"></div><div class="sp-diag"></div></div>
+  <div class="sp-inner">
+    <div class="sp-eye">The Reality · BBC India, 2026</div>
+    <div class="sp-num">67%</div>
+    <div class="sp-label">of Indian borrowers took their <em>first loan before age 30.</em><br>Most had no tool to understand what they were signing.</div>
+    <div class="sp-src">RBI FSR · BBC India · 2026</div>
+  </div>
+</section>
+
+<section class="sp sp-b" id="sp2">
+  <div class="sp-shape-wrap"><div class="sp-diag"></div><div class="sp-diag"></div></div>
+  <div class="sp-inner">
+    <div class="sp-eye">The Burden</div>
+    <div class="sp-num">40%</div>
+    <div class="sp-label">of annual income goes to <em>debt servicing</em><br>for those carrying loans.</div>
+    <div class="sp-src">BBC India · 2026</div>
+  </div>
+</section>
+
+<section class="sp sp-c" id="sp3">
+  <div class="sp-shape-wrap"><div class="sp-diag"></div></div>
+  <div class="sp-inner">
+    <div class="sp-eye">The Trap</div>
+    <div class="sp-num" style="font-size:clamp(56px,9vw,120px);">1 in 10</div>
+    <div class="sp-label">retail borrowers are caught <em>taking new loans to pay old ones</em><br>with no clear exit in sight.</div>
+    <div class="sp-src">BBC India · 2026</div>
+  </div>
+</section>
+
+<!-- Download CTA strip -->
+<section style="background:var(--blk);padding:100px 64px;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,149,42,.06) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="max-width:600px;margin:0 auto;position:relative;z-index:1;" class="rv">
+    <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(201,149,42,.4);margin-bottom:20px;">The Solution</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1.0;letter-spacing:-.03em;margin-bottom:16px;color:var(--crm);">This is the information<br>your lender has.<br><em style="font-style:italic;color:var(--gl);">Now you have it too.</em></h2>
+    <p style="font-size:16px;color:rgba(250,248,243,.35);line-height:1.8;font-weight:300;margin-bottom:40px;">HoneyDebt gives you the exact metrics banks use to evaluate you — before you walk in. DTI, FOIR, buffer months, stress test — in plain language.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="/how-it-works.html" class="hbtn hbtn-g">See How It Works →</a>
+      <a href="/download.html" class="hbtn hbtn-o">Download Free</a>
+    </div>
+  </div>
+</section>
+
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
