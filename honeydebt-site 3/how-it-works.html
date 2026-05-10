@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — HoneyDebt</title>
+<meta name="description" content="Three steps to complete loan clarity. Under two minutes. Free for every Indian borrower.">
+<link rel="icon" href="/assets/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@200;300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.how-hero{padding:160px 64px 80px;background:var(--blk);text-align:center;position:relative;overflow:hidden;}
+.how-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,149,42,.07) 0%,transparent 55%);pointer-events:none;}
+.how-hero-inner{max-width:700px;margin:0 auto;position:relative;z-index:1;}
+.how-pre{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.how-title{font-family:'Playfair Display',serif;font-size:clamp(44px,6vw,80px);font-weight:900;line-height:.95;letter-spacing:-.03em;margin-bottom:18px;}
+.how-title em{font-style:italic;color:var(--gl);}
+.how-sub{font-size:17px;color:rgba(250,248,243,.38);line-height:1.8;font-weight:300;}
+
+.steps-sec{background:var(--crm);padding:100px 64px;}
+.steps-in{max-width:1120px;margin:0 auto;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+.step{background:#FFF;padding:48px 36px;position:relative;overflow:hidden;transition:transform .28s cubic-bezier(.23,1,.32,1),box-shadow .28s;cursor:none;}
+.step:hover{transform:translate(-3px,-8px);box-shadow:3px 8px 0 rgba(201,149,42,.16),6px 14px 28px rgba(0,0,0,.09);}
+.step::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .35s;transform-origin:left;}
+.step:hover::before{transform:scaleX(1);}
+.sn{font-family:'DM Mono',monospace;font-size:60px;font-weight:500;color:rgba(201,149,42,.09);line-height:1;margin-bottom:14px;}
+.st2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--blk);margin-bottom:8px;}
+.st2 em{font-style:italic;color:var(--gold);}
+.sd{font-size:13.5px;color:#555;line-height:1.7;font-weight:300;}
+.sdots{margin-top:18px;display:flex;flex-direction:column;gap:8px;}
+.dot{font-size:12px;color:#777;display:flex;align-items:center;gap:7px;}
+.dot::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+/* AI section */
+.ai-sec{background:#0C0900;padding:100px 64px;}
+.ai-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.ai-pre{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.ai-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--crm);line-height:1.05;letter-spacing:-.025em;margin-bottom:18px;}
+.ai-title em{font-style:italic;color:var(--gl);}
+.ai-body{font-size:15px;color:rgba(250,248,243,.38);line-height:1.85;font-weight:300;margin-bottom:28px;}
+.ai-point{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:rgba(250,248,243,.45);line-height:1.65;margin-bottom:14px;}
+.ai-point span:first-child{color:var(--gold);font-size:15px;flex-shrink:0;margin-top:1px;}
+
+/* Verdict cards */
+.verdict-sec{background:var(--blk);padding:100px 64px;}
+.v-in{max-width:1120px;margin:0 auto;}
+.vd-pre{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.vd-title{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,54px);font-weight:900;color:var(--crm);line-height:1.05;letter-spacing:-.025em;margin-bottom:56px;}
+.vd-title em{font-style:italic;color:var(--gl);}
+.vcards{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+.vc{padding:48px 40px;position:relative;overflow:hidden;transition:transform .28s cubic-bezier(.23,1,.32,1),box-shadow .28s;cursor:none;border-bottom:3px solid;}
+.vc:hover{transform:translateY(-10px);box-shadow:0 24px 56px rgba(0,0,0,.5);}
+.vc-yes{background:#0a1a14;border-bottom-color:#0F6E56;}
+.vc-str{background:#1a1100;border-bottom-color:var(--gold);}
+.vc-no{background:#1a0808;border-bottom-color:var(--red);}
+.vc::after{content:'';position:absolute;top:0;right:0;width:40%;height:40%;pointer-events:none;}
+.vc-yes::after{background:radial-gradient(circle at 100% 0%,rgba(15,110,86,.08),transparent 70%);}
+.vc-str::after{background:radial-gradient(circle at 100% 0%,rgba(201,149,42,.07),transparent 70%);}
+.vc-no::after{background:radial-gradient(circle at 100% 0%,rgba(192,57,43,.07),transparent 70%);}
+.vc-ai-lbl{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;}
+.vc-yes .vc-ai-lbl{color:rgba(46,204,154,.4);}
+.vc-str .vc-ai-lbl{color:rgba(228,177,80,.4);}
+.vc-no .vc-ai-lbl{color:rgba(231,76,60,.4);}
+.vc-word{font-family:'Playfair Display',serif;font-style:italic;font-size:52px;font-weight:700;line-height:1;margin-bottom:12px;}
+.vc-yes .vc-word{color:#2ECC9A;text-shadow:0 2px 0 rgba(15,110,86,.5),0 4px 14px rgba(0,0,0,.4);}
+.vc-str .vc-word{color:var(--gl);text-shadow:0 2px 0 rgba(139,101,20,.5),0 4px 14px rgba(0,0,0,.4);}
+.vc-no .vc-word{color:#E74C3C;text-shadow:0 2px 0 rgba(120,20,10,.5),0 4px 14px rgba(0,0,0,.4);}
+.vc-desc{font-size:14px;line-height:1.65;font-weight:300;margin-bottom:20px;}
+.vc-yes .vc-desc{color:rgba(46,204,154,.5);}
+.vc-str .vc-desc{color:rgba(228,177,80,.45);}
+.vc-no .vc-desc{color:rgba(231,76,60,.5);}
+.vc-tag{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;padding:4px 11px;display:inline-block;}
+.vc-yes .vc-tag{background:rgba(15,110,86,.18);color:#2ECC9A;border:1px solid rgba(15,110,86,.25);}
+.vc-str .vc-tag{background:rgba(201,149,42,.14);color:var(--gl);border:1px solid rgba(201,149,42,.22);}
+.vc-no .vc-tag{background:rgba(192,57,43,.14);color:#E74C3C;border:1px solid rgba(192,57,43,.22);}
+
+/* Download strip */
+.dl-strip{background:linear-gradient(135deg,var(--gd) 0%,var(--gold) 40%,var(--gl) 100%);padding:80px 64px;text-align:center;}
+.dl-strip h2{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--blk);line-height:1.1;letter-spacing:-.025em;margin-bottom:12px;}
+.dl-strip h2 em{font-style:italic;}
+.dl-strip p{font-size:15px;color:rgba(10,10,10,.55);margin-bottom:32px;font-weight:300;}
+.dl-strip-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.ds-btn{display:flex;align-items:center;gap:10px;padding:14px 28px;text-decoration:none;font-size:13px;font-weight:600;transition:all .2s;cursor:none;}
+.ds-dark{background:var(--blk);color:var(--crm);}
+.ds-dark:hover{background:var(--ch2);}
+
+@media(max-width:900px){
+  .how-hero,.steps-sec,.ai-sec,.verdict-sec,.dl-strip{padding:72px 24px;}
+  .steps,.vcards,.ai-in{grid-template-columns:1fr;}
+  .ai-in{gap:40px;}
+}
+</style>
+</head>
+<body>
+  <div id="pb"></div>
+  <div class="cur" id="cur"></div>
+  <div class="cur-r" id="curR"></div>
+
+<section class="how-hero">
+  <div class="how-hero-inner rv">
+    <div class="how-pre">How It Works</div>
+    <h2 class="how-title">Three steps.<br>Under <em>two minutes.</em></h2>
+    <p class="how-sub">No account required to start. Enter your numbers, get your AI-powered verdict, walk into your lender's office knowing more than they expect.</p>
+  </div>
+</section>
+
+<section class="steps-sec">
+  <div class="steps-in">
+    <div class="steps">
+      <div class="step rv" style="transition-delay:.0s">
+        <div class="sn">01</div>
+        <div class="st2">Your <em>finances</em></div>
+        <p class="sd">Monthly income, existing EMIs, fixed expenses, emergency savings. Your data stays on your device — never uploaded, never sold.</p>
+        <div class="sdots">
+          <div class="dot">Monthly take-home salary</div>
+          <div class="dot">Existing loan EMIs</div>
+          <div class="dot">Fixed monthly expenses</div>
+          <div class="dot">Emergency savings buffer</div>
+        </div>
+      </div>
+      <div class="step rv" style="transition-delay:.12s">
+        <div class="sn">02</div>
+        <div class="st2">Loan <em>details</em></div>
+        <p class="sd">Choose from templates (Home, Car, Personal, Education, Business) or enter custom values. Sliders update your EMI live.</p>
+        <div class="sdots">
+          <div class="dot">Loan amount & tenure</div>
+          <div class="dot">Interest rate</div>
+          <div class="dot">Loan purpose classification</div>
+          <div class="dot">Productivity score (builds vs burns wealth)</div>
+        </div>
+      </div>
+      <div class="step rv" style="transition-delay:.24s">
+        <div class="sn">03</div>
+        <div class="st2">Your AI <em>verdict</em></div>
+        <p class="sd">YES, STRETCHED, or NO — with a personalised AI explanation in plain language, using your exact numbers. Plus your lender negotiation guide.</p>
+        <div class="sdots">
+          <div class="dot">DTI & FOIR analysis</div>
+          <div class="dot">Financial buffer months</div>
+          <div class="dot">What-if simulator</div>
+          <div class="dot">Lender negotiation questions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI FEATURE -->
+<section class="ai-sec">
+  <div class="ai-in">
+    <div class="rv">
+      <div class="ai-pre"><span>✦</span> New Feature</div>
+      <h2 class="ai-title">Your verdict,<br><em>explained by AI.</em></h2>
+      <p class="ai-body">Every verdict now comes with a personalised AI analysis — written in plain language, using your exact numbers. Not generic advice. Your situation, explained to you like a knowledgeable friend would.</p>
+      <div class="ai-point"><span>✦</span><span>Tells you exactly <strong style="color:var(--crm);font-weight:500;">why</strong> in your own rupees — not textbook definitions</span></div>
+      <div class="ai-point"><span>✦</span><span>Shows how fast your buffer depletes and exactly when you hit distress</span></div>
+      <div class="ai-point"><span>✦</span><span>No jargon. Written the way a wise friend explains it — not a bank</span></div>
+    </div>
+    <div class="rv" style="transition-delay:.15s;">
+      <div style="background:#1a0808;border:1px solid rgba(192,57,43,.22);border-top:3px solid var(--red);padding:32px;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5);">
+        <div style="position:absolute;top:0;right:0;width:40%;height:40%;background:radial-gradient(circle at 100% 0%,rgba(192,57,43,.07),transparent 70%);pointer-events:none;"></div>
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(231,76,60,.4);margin-bottom:12px;position:relative;">✦ AI Verdict</div>
+        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:52px;font-weight:700;color:#E74C3C;margin-bottom:8px;text-shadow:0 2px 0 rgba(120,20,10,.5),0 4px 14px rgba(0,0,0,.4);position:relative;line-height:1;">NO</div>
+        <p style="font-size:12px;color:rgba(231,76,60,.45);margin-bottom:20px;position:relative;">This loan will break you.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:16px;position:relative;">
+          <div style="background:rgba(255,255,255,.04);padding:10px 12px;"><div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,248,243,.25);margin-bottom:4px;">Monthly EMI</div><div style="font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--gl);">₹16,488</div></div>
+          <div style="background:rgba(255,255,255,.04);padding:10px 12px;"><div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,248,243,.25);margin-bottom:4px;">Surplus/mo</div><div style="font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:#E74C3C;">−₹488</div></div>
+        </div>
+        <div style="background:rgba(201,149,42,.07);border:1px solid rgba(201,149,42,.14);padding:16px;position:relative;">
+          <div style="font-size:12px;color:var(--gl);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:6px;"><span>✦</span> AI Analysis</div>
+          <div style="font-size:11.5px;color:rgba(250,248,243,.42);line-height:1.72;">
+            <p style="margin-bottom:7px;">• Your ₹50,000 income cannot sustain this EMI — ₹488 monthly deficit from day one.</p>
+            <p style="margin-bottom:7px;">• Your 13.9-month buffer depletes immediately to cover the shortfall.</p>
+            <p>• Clear path to financial stress and debt accumulation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERDICT SECTION -->
+<section class="verdict-sec">
+  <div class="v-in">
+    <div class="rv">
+      <div class="vd-pre">✦ AI-Powered Verdict</div>
+      <h2 class="vd-title">Not a score.<br>A personalised <em>explanation.</em></h2>
+    </div>
+    <div class="vcards">
+      <div class="vc vc-yes rv" style="transition-delay:.0s">
+        <div class="vc-ai-lbl">✦ AI Verdict</div>
+        <div class="vc-word">YES</div>
+        <p class="vc-desc">You can responsibly take this loan. Your AI analysis shows exactly what to negotiate with your lender before you sign.</p>
+        <span class="vc-tag">Ready to borrow</span>
+      </div>
+      <div class="vc vc-str rv" style="transition-delay:.1s">
+        <div class="vc-ai-lbl">✦ AI Verdict</div>
+        <div class="vc-word">STRETCHED</div>
+        <p class="vc-desc">One financial setback from trouble. Your AI breakdown shows exactly where the risk lies and what to do about it.</p>
+        <span class="vc-tag">Proceed with caution</span>
+      </div>
+      <div class="vc vc-no rv" style="transition-delay:.2s">
+        <div class="vc-ai-lbl">✦ AI Verdict</div>
+        <div class="vc-word">NO</div>
+        <p class="vc-desc">Serious risk. Your AI analysis explains your exact monthly deficit and how fast your buffer will deplete.</p>
+        <span class="vc-tag">Protect yourself</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD STRIP -->
+<section class="dl-strip">
+  <div class="rv">
+    <h2>Ready to know<br>before you <em>owe?</em></h2>
+    <p>Free download. No account needed. Available in Hindi, English, Marathi, and Tamil.</p>
+    <div class="dl-strip-btns">
+      <a href="/download.html" class="ds-btn ds-dark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.4c1.31.07 2.23.73 2.98.77 1.14-.24 2.24-.93 3.44-.84 1.46.12 2.56.69 3.28 1.74-3.01 1.77-2.46 5.77.44 6.9-.51 1.4-1.19 2.79-2.14 4.31zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        App Store
+      </a>
+      <a href="/download.html" class="ds-btn ds-dark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.37.2.8.22 1.2.05l12.11-6.96-2.76-2.76-10.55 9.67zm-1.3-19.51C1.66 4.57 1.5 5 1.5 5.51v12.98c0 .51.16.94.38 1.26l.07.06 7.27-7.27v-.17L1.88 4.25zm18.21 8.24l-2.47-1.42-2.47 1.42-.97.56 2.78 2.78.14-.08 3-1.73c.85-.49.85-1.29-.01-1.53zM4.38.24C3.98.07 3.55.09 3.18.3L13.56 10.7l2.76-2.76L4.38.24z"/></svg>
+        Google Play
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="/js/components.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
