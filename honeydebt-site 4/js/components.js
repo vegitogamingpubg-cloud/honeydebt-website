@@ -62,6 +62,7 @@ const FOOTER_HTML = `
         <a href="/download.html">Download</a>
         <a href="mailto:honeydebtindia@gmail.com">Contact</a>
         <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
       </div>
     </div>
     <div class="fr">
