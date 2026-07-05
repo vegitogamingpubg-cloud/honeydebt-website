@@ -150,3 +150,117 @@
 @media(max-width:420px){
   .hero-l h1 { font-size:42px; }
 }
+
+/* ════════════════════════════════════════
+   LANGUAGE SHOWCASE — One AI. Four languages.
+════════════════════════════════════════ */
+.lang-sec {
+  background: #0C0900;
+  padding: 120px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.lang-sec::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 40%, rgba(201,149,42,.06) 0%, transparent 55%);
+  pointer-events: none;
+}
+/* faint floating script glyphs */
+.lang-glyph {
+  position: absolute;
+  font-family: 'Playfair Display', 'Noto Sans Devanagari', 'Noto Sans Tamil', serif;
+  color: rgba(201,149,42,.05);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+.lg1 { font-size: 220px; right: -30px; top: 4%; animation: floatA 11s ease-in-out infinite; }
+.lg2 { font-size: 150px; left: -20px; bottom: 8%; animation: floatC 9s ease-in-out infinite 1s; }
+.lg3 { font-size: 110px; right: 26%; bottom: -20px; animation: floatB 10s ease-in-out infinite 2s; }
+
+.lang-in {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+.lang-pre {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.lang-title {
+  font-family: 'Playfair Display', serif; font-size: clamp(32px,4vw,52px);
+  font-weight: 900; color: var(--crm); line-height: 1.05; letter-spacing: -.025em; margin-bottom: 18px;
+}
+.lang-title em { font-style: italic; color: var(--gl); }
+.lang-body {
+  font-size: 15px; color: rgba(250,248,243,.38); line-height: 1.85; font-weight: 300; margin-bottom: 30px;
+}
+.lang-body strong { color: var(--crm); font-weight: 500; }
+.lang-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.lp {
+  font-family: 'DM Sans', 'Noto Sans Devanagari', 'Noto Sans Tamil', sans-serif;
+  font-size: 13px; font-weight: 500;
+  background: transparent; color: rgba(250,248,243,.45);
+  border: 1px solid rgba(201,149,42,.22);
+  padding: 10px 22px; cursor: none;
+  transition: all .25s;
+}
+.lp:hover { color: var(--gl); border-color: rgba(201,149,42,.5); }
+.lp.active {
+  background: linear-gradient(135deg, var(--gold), var(--gl));
+  color: var(--blk); border-color: transparent; font-weight: 600;
+  box-shadow: 0 6px 22px rgba(201,149,42,.28);
+}
+
+/* the morphing verdict card */
+.lv-card {
+  background: #14100A;
+  border: 1px solid rgba(228,177,80,.22);
+  border-top: 3px solid var(--gl);
+  padding: 32px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+.lv-card::after {
+  content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 40%;
+  background: radial-gradient(circle at 100% 0%, rgba(228,177,80,.07), transparent 70%);
+  pointer-events: none;
+}
+.lv-anim { transition: opacity .24s ease, transform .24s ease; }
+.lv-card.lx .lv-anim { opacity: 0; transform: translateY(7px); }
+.lv-lbl {
+  font-family: 'DM Mono', 'Noto Sans Devanagari', 'Noto Sans Tamil', monospace;
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(228,177,80,.5); margin-bottom: 12px;
+}
+.lv-word {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 52px; font-weight: 700; color: var(--gl);
+  margin-bottom: 8px; line-height: 1;
+  text-shadow: 0 2px 0 rgba(100,60,0,.6), 0 4px 14px rgba(0,0,0,.5);
+}
+.lv-sub {
+  font-family: 'DM Sans', 'Noto Sans Devanagari', 'Noto Sans Tamil', sans-serif;
+  font-size: 13px; color: rgba(250,248,243,.42); margin-bottom: 22px; line-height: 1.65;
+}
+.lv-ai {
+  background: rgba(201,149,42,.07); border: 1px solid rgba(201,149,42,.14); padding: 16px;
+}
+.lv-ai-title {
+  font-family: 'DM Sans', 'Noto Sans Devanagari', 'Noto Sans Tamil', sans-serif;
+  font-size: 12px; color: var(--gl); font-weight: 600; margin-bottom: 10px; letter-spacing: .01em;
+}
+.lv-bullets {
+  font-family: 'DM Sans', 'Noto Sans Devanagari', 'Noto Sans Tamil', sans-serif;
+  font-size: 11.5px; color: rgba(250,248,243,.42); line-height: 1.72;
+}
+.lv-bullets p { margin-bottom: 7px; }
+.lv-bullets p:last-child { margin-bottom: 0; }
+
+@media(max-width:900px){
+  .lang-sec { padding: 80px 24px; }
+  .lang-in { grid-template-columns: 1fr; gap: 40px; }
+  .lg1 { font-size: 140px; }
+  .lg2, .lg3 { display: none; }
+}

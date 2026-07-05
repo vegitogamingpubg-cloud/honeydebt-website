@@ -304,3 +304,22 @@ footer { background: #060606; padding: 52px 64px; border-top: 1px solid rgba(201
   section[style*="0C0900"]{padding:72px 24px !important;}
   section[style*="0C0900"] [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;gap:40px !important;}
 }
+
+/* ── OFFICIAL STORE BADGES (injected via [data-badges]) ── */
+.store-badges { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.sbadge {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: #000; border: 1px solid rgba(255,255,255,.32); border-radius: 9px;
+  padding: 10px 20px 10px 15px;
+  text-decoration: none; transition: transform .22s, box-shadow .22s, border-color .22s;
+  cursor: none;
+}
+.sbadge:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.55); border-color: rgba(255,255,255,.55); }
+.sbadge svg { width: 27px; height: 27px; flex-shrink: 0; }
+.sb-txt { display: flex; flex-direction: column; line-height: 1.05; text-align: left; }
+.sb-top { font-family: 'DM Sans', sans-serif; font-size: 9px; color: rgba(255,255,255,.78); letter-spacing: .09em; text-transform: uppercase; font-weight: 500; }
+.sb-bot { font-family: 'DM Sans', sans-serif; font-size: 17px; color: #fff; font-weight: 600; margin-top: 2px; letter-spacing: .01em; }
+@media(max-width:420px){ .sbadge { padding: 9px 16px 9px 12px; } .sb-bot { font-size: 15px; } }
+
+/* ── NATIVE SCRIPT SUPPORT ── */
+.lang-native { font-family: 'DM Sans', 'Noto Sans Devanagari', 'Noto Sans Tamil', sans-serif; }

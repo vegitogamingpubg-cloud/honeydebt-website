@@ -24,7 +24,7 @@ function initCursor() {
     requestAnimationFrame(loop);
   })();
 
-  document.querySelectorAll('a, button, .step, .vc, .story, .kcard, .mini-calc').forEach(el => {
+  document.querySelectorAll('a, button, .step, .vc, .story, .kcard, .mini-calc, .sbadge, .lp').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cur.style.width = '18px';
       cur.style.height = '18px';
@@ -197,4 +197,116 @@ if (slider) {
 
   updateAll();
   slider.addEventListener('input', updateAll);
+}
+
+/* ════════════════════════════════════════
+   LANGUAGE SHOWCASE — index only
+   The AI verdict, live in 4 languages
+════════════════════════════════════════ */
+(function () {
+  const pillsWrap = document.getElementById('langPills');
+  if (!pillsWrap) return;
+
+  const LANGS = [
+    {
+      code: 'en', pill: 'English',
+      lbl: 'AI Verdict',
+      sub: 'You are one financial setback away from trouble.',
+      ai: 'AI Analysis',
+      bullets: [
+        'Your ₹16,488 EMI will consume 25% of your ₹65,000 income.',
+        'After EMIs and expenses, only ₹15,512 remains each month.',
+        'Your 3-month buffer leaves very little room for surprises.'
+      ]
+    },
+    {
+      code: 'hi', pill: 'हिंदी',
+      lbl: 'AI फ़ैसला',
+      sub: 'आप मुश्किल से बस एक वित्तीय झटका दूर हैं।',
+      ai: 'AI विश्लेषण',
+      bullets: [
+        'आपकी ₹16,488 की EMI आपकी ₹65,000 आय का 25% ले जाएगी।',
+        'EMI और खर्चों के बाद हर महीने सिर्फ ₹15,512 बचेंगे।',
+        'आपका 3 महीने का बफर बहुत कम सुरक्षा देता है।'
+      ]
+    },
+    {
+      code: 'mr', pill: 'मराठी',
+      lbl: 'AI निर्णय',
+      sub: 'तुम्ही अडचणीपासून फक्त एक आर्थिक धक्का दूर आहात.',
+      ai: 'AI विश्लेषण',
+      bullets: [
+        'तुमचा ₹16,488 चा EMI तुमच्या ₹65,000 उत्पन्नाच्या 25% घेईल.',
+        'EMI आणि खर्चांनंतर दर महिन्याला फक्त ₹15,512 उरतील.',
+        'तुमचा 3 महिन्यांचा बफर फारच कमी संरक्षण देतो.'
+      ]
+    },
+    {
+      code: 'ta', pill: 'தமிழ்',
+      lbl: 'AI தீர்ப்பு',
+      sub: 'நீங்கள் சிக்கலில் இருந்து ஒரே ஒரு நிதி பின்னடைவு தொலைவில் உள்ளீர்கள்.',
+      ai: 'AI பகுப்பாய்வு',
+      bullets: [
+        'உங்கள் ₹16,488 EMI உங்கள் ₹65,000 வருமானத்தில் 25% எடுக்கும்.',
+        'EMI மற்றும் செலவுகளுக்குப் பிறகு மாதம் ₹15,512 மட்டுமே மீதம்.',
+        'உங்கள் 3 மாத பாதுகாப்பு நிதி மிகக் குறைவான இடம் தருகிறது.'
+      ]
+    }
+  ];
+
+  const lvLbl     = document.getElementById('lvLbl');
+  const lvSub     = document.getElementById('lvSub');
+  const lvAiTitle = document.getElementById('lvAiTitle');
+  const lvBullets = document.getElementById('lvBullets');
+  const lvCard    = document.getElementById('lvCard');
+
+  // build pills
+  LANGS.forEach((L, i) => {
+    const b = document.createElement('button');
+    b.className = 'lp' + (i === 0 ? ' active' : '');
+    b.textContent = L.pill;
+    b.setAttribute('data-i', i);
+    b.addEventListener('click', () => { manual = true; show(i); });
+    pillsWrap.appendChild(b);
+  });
+  const pills = [...pillsWrap.children];
+
+  let current = 0, manual = false;
+
+  function show(i) {
+    if (i === current) return;
+    current = i;
+    pills.forEach((p, j) => p.classList.toggle('active', j === i));
+    lvCard.classList.add('lx');
+    setTimeout(() => {
+      const L = LANGS[i];
+      lvLbl.textContent = '✦ ' + L.lbl;
+      lvSub.textContent = L.sub;
+      lvAiTitle.textContent = '✦ ' + L.ai;
+      lvBullets.innerHTML = L.bullets.map(b => '<p>• ' + b + '</p>').join('');
+      lvCard.classList.remove('lx');
+    }, 240);
+  }
+
+  // auto-cycle until user interacts
+  setInterval(() => { if (!manual) show((current + 1) % LANGS.length); }, 3600);
+})();
+
+/* ════════════════════════════════════════
+   ANDROID "NOW LIVE" SMART BANNER
+   Shows once to Android visitors
+════════════════════════════════════════ */
+(function () {
+  const banner = document.getElementById('and-banner');
+  if (!banner) return;
+  const isAndroid = /android/i.test(navigator.userAgent);
+  if (!isAndroid) return;
+  if (localStorage.getItem('hd-play-banner-done')) return;
+  setTimeout(() => banner.classList.add('show'), 1500);
+})();
+
+function dismissBanner() {
+  const banner = document.getElementById('and-banner');
+  if (banner) banner.classList.remove('show');
+  localStorage.setItem('hd-play-banner-done', '1');
 }
